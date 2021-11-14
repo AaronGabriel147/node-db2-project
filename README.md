@@ -1,18 +1,12 @@
-# Node DB2 Project Starter Code
+I added:
+"start": "node index.js",
 
-## Introduction
-
-In this challenge, you will write an API that can be used to manage _Cars_ stored in a Relational Database.
-
-## Instructions
-
-### Task 1: Project Setup and Submission
-
-Your assignment page on Canvas should contain instructions for submitting this project. If you are still unsure, reach out to School Staff.
 
 ### Task 2: Minimum Viable Product
 
+In this challenge, you will write an API that can be used to manage _Cars_ stored in a Relational Database.
 Build a RESTful API for an "cars" resource. The client for this API is a car dealer.
+
 
 #### Cars Schema
 
@@ -36,6 +30,9 @@ The critical information for each car is the vin, make, model, and mileage. They
   - `getById` resolves to a car record by the given id
   - `create` resolves to the newly created car record
 
+
+
+
 #### Write Middleware
 
 - Write the following middlewares inside `api/cars/cars-middleware.js`:
@@ -48,6 +45,10 @@ The critical information for each car is the vin, make, model, and mileage. They
 
   - `checkVinNumberUnique` returns a status 400 with a `{ message: "vin <vin number> already exists" }` if the vin number already exists in the database.
 
+
+
+
+
 ### Write a Cars API
 
 - Write CR (of CRUD) for the `cars` resource, using the middleware and model functions described above wherever appropriate inside `api/cars/cars-router.js` :
@@ -59,12 +60,19 @@ The critical information for each car is the vin, make, model, and mileage. They
 - Manually test your endpoints with a REST client like `Insomnia` or `Postman` to check they are working as expected.
 - Test your endpoints automatically by running `npm test`.
 
+
+
+
+
 #### Notes
 
 - Test your work manually using Postman or HTTPie. Run automatic tests by executing `npm test`.
 - You are welcome to create additional files but **do not move or rename existing files** or folders.
 - Do not alter your `package.json` file except to install additional libraries or add additional scripts. **Do not update existing libs**.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
+
+
+
 
 ### Task 3: Stretch Problems
 

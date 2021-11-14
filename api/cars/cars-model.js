@@ -1,3 +1,8 @@
+
+const db = require('../../data/db-config')
+
+
+
 const getAll = () => {
   // DO YOUR MAGIC
 }
@@ -8,4 +13,11 @@ const getById = () => {
 
 const create = () => {
   // DO YOUR MAGIC
+}
+
+
+exports = module.exports = {
+  getAll,
+  getById,
+  create
 }
