@@ -2,10 +2,8 @@ const express = require("express");
 const server = express();
 server.use(express.json());
 
-
-
-// const AccountsRouter = require("./accounts/accounts-router");
-// server.use("/api/accounts", AccountsRouter);
+const carsRouter = require("./cars/cars-router");
+server.use("api/cars", carsRouter);
 
 
 server.get('/', (req, res) => { // Sanity check to connect to browser or HTTP client.

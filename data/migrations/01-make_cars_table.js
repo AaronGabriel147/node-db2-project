@@ -1,3 +1,16 @@
+// Changes and Rollbacks
+// If we realize you need to update your schema later down the road, you shouldn't edit the migration file. Instead, you will want to create a new migration with the command:
+
+// knex migrate:make accounts-schema-update
+
+// Once we've written our updates into this file, we save and close with:
+
+// knex migrate:latest
+
+// If we migrate our database and then quickly realize something isn't right, we can edit the migration file. However, first, we need to rollback (or undo) our last migration with:
+
+// knex migrate:rollback
+
 
 
 // In terminal: @@@@@@@@ npx knex migrate:up @@@@@@@@@ - if there is a problem it may be the knex file or dbconfig

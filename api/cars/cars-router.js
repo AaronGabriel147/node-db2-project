@@ -1,22 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../data/db-config')
+// const db = require('../../data/db-config')
 
+const Car = require('../../api/cars/cars-model')
 
 
 
 
 // Get all cars
 router.get('/', (req, res, next) => {
-    // Accounts.getAll()
-    //     .then(item => {
-    //         res.status(200).json(item)
-    //         // throw new Error('Error')
-    //     })
-    //     .catch(next)
+    Car.getAll()
+        .then(item => {
+            res.status(200).json(item)
+            // throw new Error('Error')
+        })
+        .catch(next)
 })
 
-
+// router.get('/', (req, res) => {
+//     carsModel.getAll()
+//         .then(cars => {
+//             res.status(200).send(cars);
+//         })
+//         .catch(message => {
+//             res.status(500).send(message);
+//         });
+// });
 
 
 
