@@ -1,7 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../data/db-config')
+// const db = require('../../data/db-config')
 
+// Middleware
+// const { checkCarId,
+//     checkCarPayload,
+//     checkVinNumberValid,
+//     checkVinNumberUnique } = require('./cars-middleware')
+
+// Models
 const Car = require('../../api/cars/cars-model')
 // getAll
 // getById
@@ -40,30 +47,71 @@ router.get('/:id', (req, res, next) => {
     Car.getById(id)
         .then(item => {
             res.status(200).json(item)
-        }).catch(next)
+        })
+        .catch(next)
 })
 
 
 
+// const create = async ({ vin, make, model, mileage, title, transmission }) => {
+//     const [id] = await db('cars').insert({ vin, make, model, mileage, title, transmission })
+//     return getById(id)
+//   }
 
-
-
-
-
-
-
-
-
-
-
-
+// checkCarId,
 // `[POST] /api/cars` returns the created car.
-router.post('/', (req, res) => {
+router.post('/:id/', (req, res, next) => {
+    const addCar = { cars_id: req.params.id, ...req.body }
+    console.log('xxxxxxxxxx', addCar)
 
+    Car.create(addCar)
+        .then(stuff => {
+            res.status(201).json(stuff);
+        })
+        .catch(next);
 })
+
+// model of old project...........
+// function insert(user) {
+//     return db('users')
+//       .insert(user)
+//       .then(ids => {
+//         return getById(ids[0]); // 
+//       });
+//   }
+
+// old project...........
+// router.post('/:id/posts', validateUserId, validatePost, (req, res, next) => {
+//     const newPost = { user_id: req.params.id, ...req.body }
+//     Posts.insert(newPost)
+//         .then(post => {
+//             res.status(201).json(post);
+//         })
+//         .catch(next);
+// });
 
 
 exports = module.exports = router;
+
+
+// RETURN THE NEWLY CREATED USER POST
+// this needs a middleware to verify user id
+// and another middleware to check that the request body is valid
+// const newPost = req.body // something I tried. 
+
+//  I was stuck for 1.5 hours because I was entering the wrong json object into the HTTP client.
+//  I did not have user_id in the json object. It must be like this:
+// NOTE that the user_id must match the user_id in the URL. --> http://localhost:5000/api/users/2/posts
+// {
+//     "user_id": 2,
+//     "text": "Not su,re how to test this POST"
+// }
+
+//  I had it like this:
+// {
+//     "text": "Not sure how to test this POST",
+//     "postedBy": "Nobody"
+// }
 
 
 

@@ -35,12 +35,27 @@ const getById = (id) => {
 
 
 
-
-
+// INSERT INTO shippers (shippername, phone) VALUES ('acme 44', '(916) 500 9483');
+// insert into cars (model) values ('Gran Torino');
 // - `create` resolves to the newly created car record
-const create = () => {
-  // DO YOUR MAGIC
+
+
+
+// const create = async ({ vin, make, model, mileage, title, transmission }) => {
+//   const [id] = await db('cars').insert({ vin, make, model, mileage, title, transmission })
+//   return getById(id)
+// }
+
+
+function create(car) {
+  return db('cars')
+    .insert(car)
+    .then(ids => {
+      return getById(ids[0]);
+    });
 }
+
+
 
 
 exports = module.exports = {
