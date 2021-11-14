@@ -3,7 +3,7 @@ const server = express();
 server.use(express.json());
 
 const carsRouter = require("./cars/cars-router");
-server.use("api/cars", carsRouter);
+server.use("/api/cars", carsRouter);
 
 
 server.get('/', (req, res) => { // Sanity check to connect to browser or HTTP client.

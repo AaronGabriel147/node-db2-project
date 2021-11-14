@@ -5,16 +5,17 @@ const db = require('../../data/db-config')
 
 
 
-// function getAll() {
-//   return db('cars')
-// }
-const getAll = () => {
+function getAll() {
   return db('cars')
-    .orderBy('id')
-    .then(cars => {
-      return cars;
-    })
 }
+
+// const getAll = () => {
+//   return db('cars')
+//     .orderBy('id')
+//     .then(cars => {
+//       return cars;
+//     })
+// }
 
 
 
