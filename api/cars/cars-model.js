@@ -5,23 +5,39 @@ const db = require('../../data/db-config')
 
 
 
-function getAll() {
-  return db('cars')
-}
-
-// const getAll = () => {
+// - `getAll` resolves to an array of car records (or an empty array)
+// function getAll() {
 //   return db('cars')
-//     .orderBy('id')
-//     .then(cars => {
-//       return cars;
-//     })
 // }
 
-
-
-const getById = () => {
-  // DO YOUR MAGIC
+const getAll = () => {
+  return db('cars')
+    .orderBy('cars_id')
+  // .then(cars => {
+  //   return cars;
+  // })
 }
+
+
+
+
+
+// - `getById` resolves to a car record by the given id
+
+const getById = (id) => {
+
+  return db('cars').where('cars_id', id).first()
+  //   .then(car => {
+  //     return car;
+  //   })
+}
+
+
+
+
+
+
+// - `create` resolves to the newly created car record
 const create = () => {
   // DO YOUR MAGIC
 }
@@ -167,7 +183,7 @@ exports = module.exports = {
 
 
 // // -- Grab all CategoryId's that have an integer of one. 
-// // SELECT * FROM products WHERE categoryid = 1;
+// // SELECT * FROM products WHERE category id = 1;
 
 
 // // _______________________________________________

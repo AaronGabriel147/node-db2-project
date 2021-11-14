@@ -16,6 +16,11 @@ server.get('/', (req, res) => { // Sanity check to connect to browser or HTTP cl
 })
 
 
+server.use('*', (req, res, next) => {
+    next({ status: 404, message: `******${req.method} ${req.originalUrl} not found!` })
+});
+
+
 server.use(errorHandling) // will trap "".catch/500 errors" happening above
 
 
@@ -24,8 +29,9 @@ module.exports = server;
 
 // *catch all 500 errors middleware* 
 function errorHandling(err, req, res, next) {
-    res.status(err.status || 500).json({
-        message: err.message,
-        status: 500
-    })
+    console.log('inside catch all 500****'),
+        res.status(err.status || 500).json({
+            message: err.message,
+            status: 500
+        })
 }

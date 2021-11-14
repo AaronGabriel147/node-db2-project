@@ -4,17 +4,25 @@
 
 exports.seed = function (knex) {
     // Deletes ALL existing entries
-    return knex('cars').truncate() // truncate() is a method on knex. // https://knexjs.org/#Schema-truncate 
+    return knex('cars').truncate() // truncate() over del() because truncate orders the id names. // https://knexjs.org/#Schema-truncate 
         .then(function () {
             // Inserts seed entries
             return knex('cars').insert([
                 {
-                    vin: '1HGCR2FV4FN079079',
+                    vin: '1HGCR2FV4FN076669',
                     make: 'Ford',
                     model: 'Galaxie',
-                    mileage: '12000',
-                    title: '',
+                    mileage: '184350',
+                    title: 'Salvage',
                     transmission: 'Automatic'
+                },
+                {
+                    vin: '1HGCR2FV4FN079079',
+                    make: 'Chrysler',
+                    model: 'Newport',
+                    mileage: '232000',
+                    title: 'Clean',
+                    transmission: 'Manual'
                 }
             ]);
         });

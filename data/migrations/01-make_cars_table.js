@@ -1,3 +1,8 @@
+
+// End of this video for creating new tables or columns. 
+// https://www.youtube.com/watch?v=WEW2fB4C8Rw&list=PL0pqmT38sWfthShZSffvgJp7MapFC0Ao_&index=41&t=1275s
+
+
 // Changes and Rollbacks
 // If we realize you need to update your schema later down the road, you shouldn't edit the migration file. Instead, you will want to create a new migration with the command:
 
